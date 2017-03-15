@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row" id="centertext">
+	  <p>You are currently counting box # </p><p id="box#display">None selected yet</p>
+	</div>
+	<br><br>
+	<div class="row">
+    <p id="centertext"> Tap the buttons below to count the cells. <br>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <p id="centertext"> Green for live cells. <br>
+      	<img src="green.png" class="img-rounded" onclick="bluecounter()">
+      </p>
+      <p id="greencount"></p>
+      <p id="greenctdisplay" class="displayct"></p>
+    </div>
+    <div Class="col-xs-6">
+      <p id="centertext"> Red for dead cells. <br>
+      	<img src="red.png" class="img-rounded" onclick="redcounter()">
+      </p>
+      <p id="redctdisplay" class="displayct"></p>
+    </div>
+  </div>
+  <div class="row text-center">
+  	<button type="button" class="btn btn-primary" onclick="addtocellarrays()" id="CellCtSubmit">
+  		<br><br><br>Submit Cell Count<br><br><br><br>
+  	</button>
+  </div>
+</div>
