@@ -1,6 +1,13 @@
 <div class="container">
-	<p> Did you dilute your cell counting volume? If so, by how much?
-	<br> </p>
+<form>
+	<p> Did you dilute your cell counting volume? If so, by how much?<br> 
+	</p>
+	<div class= "radio" *ngFor = "let d of diluteRatioOptions">
+		<label>
+			<input type = "radio" name = "dilutionRatio" [(ngMOdel)] = "computeData.diluteRatio" [value] = "d">
+			{{d}}
+		</label>
+	</div>
 	<div class="radio">
 	  <label><input type="radio" name="opt" value="2">1/2</label>
 	</div>
@@ -14,14 +21,14 @@
 	  <label><input type="radio" name="opt" value="1">No</label>
 	</div>
 	<br>
-	<form role="form">
 	  <div class="form-group">
 	    <label for="email">What is the total volume?</label>
-	    <input type="text" id="totalvolume">
+	    <input type="text" [(ngModel)]="totalvolume" id="totalvolume">
+	    <p> {{totalvolume}} </p>
 	  </div>
-	</form>
 	<!-- TODO: When button is clicked, check for form validation. Set up a guard? -->
 	<div class="text-center">
-		<button type="button" class="btn btn-primary">Proceed</button>
+		<button type="button" class="btn btn-primary" (click)="onClicked()">Proceed</button>
 	</div>
+</form>
 </div>
