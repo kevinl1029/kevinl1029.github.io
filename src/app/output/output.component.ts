@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CellcomputeService } from "app/cellcompute.service";
 
 @Component({
   selector: 'la-output',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OutputComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ccs: CellcomputeService) { }
 
   ngOnInit() {
   }

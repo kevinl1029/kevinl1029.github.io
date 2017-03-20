@@ -7,16 +7,24 @@ import { CellcomputeService } from '../cellcompute.service';
 })
 export class InputComponent implements OnInit {
 
-	// totalvolume: number = 0;
+  diluteInput = '';
+  totalVolumeInput = '';
 
-	@Output() totalvolume = new EventEmitter<number>();
+  constructor(private ccs: CellcomputeService) {}
 
-  constructor() { }
+  diluteRatioOptions = [
+    '1/2',
+    '1/4',
+    '1/8',
+    '1'];
 
-  onClicked(totalvolume: number){
-  	// this.totalvolume.emit(totalvolume);
-  	alert(this.totalvolume)
+  onSend(diluteInput: any, totalVolumeInput: any){
+  	this.ccs.addData(diluteInput, totalVolumeInput);
   };
+
+  onLog(value: string) {
+    this.ccs.writeToLog(value);
+  }
 
   ngOnInit() {
   }

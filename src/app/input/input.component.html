@@ -1,34 +1,28 @@
 <div class="container">
-<form>
-	<p> Did you dilute your cell counting volume? If so, by how much?<br> 
-	</p>
-	<div class= "radio" *ngFor = "let d of diluteRatioOptions">
-		<label>
-			<input type = "radio" name = "dilutionRatio" [(ngMOdel)] = "computeData.diluteRatio" [value] = "d">
-			{{d}}
-		</label>
+<!--<form (ngSubmit)="onSubmit(f)" #f="ngForm">-->
+	<div>
+		<p> Did you dilute your cell counting volume? If so, by how much?<br></p>
+		<br>
+		<!--<div class="radio" *ngFor="let d of this.ccs.diluteRatioOptions">
+			<label>
+				<input type="radio"
+							#diluteRadio
+							[value]="d">
+				{{d}}
+			</label>
+		</div>-->
+		<div>
+			<label for="dilution">What is the dilution?</label>
+			<input type="text" #diluteRatio value={{this.ccs.diluteRatio}}>
+			<label for="totalvolume">What is the total volume?</label>
+			<input type="text" #totalVolume value={{this.ccs.totalVolume}}>
+			<p> </p>
+		</div>
+		<!-- TODO: When button is clicked, check for form validation. Set up a guard? -->
+		<div class="text-center">
+			<!--<button type="button" class="btn btn-primary" (click)="onLog(totalVolume.value)">Log</button>-->
+			<button type="button" class="btn btn-primary" [routerLink]="['/boxselect']" (click)="onSend(diluteRatio.value,totalVolume.value)">Proceed</button>
+		</div>
 	</div>
-	<div class="radio">
-	  <label><input type="radio" name="opt" value="2">1/2</label>
-	</div>
-	<div class="radio">
-	  <label><input type="radio" name="opt" value="4">1/4</label>
-	</div>
-	<div class="radio">
-	  <label><input type="radio" name="opt" value="8">1/8</label>
-	  </div>
-	<div class="radio">
-	  <label><input type="radio" name="opt" value="1">No</label>
-	</div>
-	<br>
-	  <div class="form-group">
-	    <label for="email">What is the total volume?</label>
-	    <input type="text" [(ngModel)]="totalvolume" id="totalvolume">
-	    <p> {{totalvolume}} </p>
-	  </div>
-	<!-- TODO: When button is clicked, check for form validation. Set up a guard? -->
-	<div class="text-center">
-		<button type="button" class="btn btn-primary" (click)="onClicked()">Proceed</button>
-	</div>
-</form>
+<!--</form>-->
 </div>

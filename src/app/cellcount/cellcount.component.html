@@ -9,20 +9,20 @@
   <div class="row">
     <div class="col-xs-6">
       <p id="centertext"> Green for live cells. <br>
-      	<img src="green.png" class="img-rounded" onclick="bluecounter()">
+      	<img src="green.png" class="img-rounded" (click)="liveCellCounter()">
       </p>
       <p id="greencount"></p>
-      <p id="greenctdisplay" class="displayct"></p>
+      <p id="greenctdisplay" class="displayct">{{liveBoxCount}}</p>
     </div>
     <div Class="col-xs-6">
       <p id="centertext"> Red for dead cells. <br>
-      	<img src="red.png" class="img-rounded" onclick="redcounter()">
+      	<img src="red.png" class="img-rounded" (click)="deadCellCounter()">
       </p>
-      <p id="redctdisplay" class="displayct"></p>
+      <p id="redctdisplay" class="displayct">{{deadBoxCount}}</p>
     </div>
   </div>
   <div class="row text-center">
-  	<button type="button" class="btn btn-primary" onclick="addtocellarrays()" id="CellCtSubmit">
+  	<button type="button" class="btn btn-primary" [routerLink]="['/boxselect']" (click)="addToCellArrays()">
   		<br><br><br>Submit Cell Count<br><br><br><br>
   	</button>
   </div>

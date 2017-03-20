@@ -9,6 +9,8 @@ import { InputComponent } from './input/input.component';
 import { BoxSelectComponent } from './cellcount/boxselect.component';
 import { CellcountComponent } from './cellcount/cellcount.component';
 import { OutputComponent } from './output/output.component';
+import { CellcomputeService } from "app/cellcompute.service";
+import { routing } from "app/app.routing";
 
 @NgModule({
   declarations: [
@@ -17,14 +19,15 @@ import { OutputComponent } from './output/output.component';
     InputComponent,
     BoxSelectComponent,
     CellcountComponent,
-    OutputComponent
+    OutputComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
-  providers: [],
+  providers: [CellcomputeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
