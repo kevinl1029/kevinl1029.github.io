@@ -5,15 +5,15 @@ import { Directive, HostListener, HostBinding } from '@angular/core';
 })
 export class HighlightDirective {
 
-  // @HostListener('mouseenter') mouseover() {
-  //   this.backgroundColor = 'red';
-  // };
-  // @HostListener('mouseleave') mouseleave() {
-  //   this.backgroundColor = 'bisque';
-  // };
-  @HostListener('onclick') onclick() {
+  @HostListener('mouseenter') mouseover() {
     this.backgroundColor = 'red';
-  }
+  };
+  @HostListener('mouseleave') mouseleave() {
+    this.backgroundColor = 'bisque';
+  };
+  // @HostListener('onclick') onclick() {
+  //   this.backgroundColor = 'red';
+  // }
   @HostBinding('style.backgroundColor') get setColor() {
     return this.backgroundColor;
   };

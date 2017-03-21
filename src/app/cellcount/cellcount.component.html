@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row" id="centertext">
-	  <p>You are currently counting box # </p><p id="box#display">None selected yet</p>
+	  <p>You are currently counting box # </p><p id="box#display">{{id}}</p>
 	</div>
 	<br><br>
 	<div class="row">
@@ -22,8 +22,14 @@
     </div>
   </div>
   <div class="row text-center">
+    <button type="button" class="btn btn-warning" (click)="back()">
+  		<br>Back<br><br>
+  	</button>
   	<button type="button" class="btn btn-primary" [routerLink]="['/boxselect']" (click)="addToCellArrays()">
-  		<br><br><br>Submit Cell Count<br><br><br><br>
+  		<br>Submit Cell Count<br><br>
+  	</button>
+    <button type="button" class="btn btn-warning" (click)="resetCount()">
+  		<br>Reset Count<br><br>
   	</button>
   </div>
 </div>

@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, EventEmitter, ElementRef } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { CellcomputeService } from "app/cellcompute.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'la-boxselect',
@@ -7,7 +8,7 @@ import { CellcomputeService } from "app/cellcompute.service";
 })
 export class BoxSelectComponent implements OnInit {
 
-  constructor(private ccs: CellcomputeService, private elementRef: ElementRef) { }
+  constructor(private ccs: CellcomputeService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -16,8 +17,9 @@ export class BoxSelectComponent implements OnInit {
     this.ccs.calculateVols();
   }
 
-  boxSelect() {
-    this.elementRef.nativeElement.style.backgroundColor='red';
+  boxSelect(id: any) {
+    console.log(id);
+    this.router.navigate(['../cellcount',id]);
   }
 
   showVals() {

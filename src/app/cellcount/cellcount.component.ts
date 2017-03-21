@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CellcomputeService } from "app/cellcompute.service";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'la-cellcount',
@@ -9,10 +10,17 @@ export class CellcountComponent implements OnInit {
   
   liveBoxCount: number= 0;
   deadBoxCount: number= 0;
+  id: string;
 
-  constructor(private ccs: CellcomputeService) { }
+  constructor(private ccs: CellcomputeService, private router: Router, private activatedRoute: ActivatedRoute) {
+    this.id = activatedRoute.snapshot.params['id'];
+   }
 
   ngOnInit() {
+    if(!this.ccs.boxCheck(this.id)) {
+      alert("You've already counted cells for this box.");
+      this.router.navigateByUrl('/boxselect');
+    }
   }
 
   liveCellCounter() {
@@ -25,8 +33,19 @@ export class CellcountComponent implements OnInit {
 
   addToCellArrays() {
     this.ccs.writeToLog(this.liveBoxCount+" " + this.deadBoxCount);
-    this.ccs.cellArraySubmit(this.liveBoxCount, this.deadBoxCount);
+    this.ccs.cellArraySubmit(this.liveBoxCount, this.deadBoxCount, this.id);
     this.liveBoxCount = 0;
     this.deadBoxCount = 0;
   }
+
+  back() {
+    this.router.navigateByUrl('/boxselect');
+  }
+  resetCount() {
+    if(confirm('Are you sure you want to reset the count?\nCell Counts will be reset.')) {
+      this.liveBoxCount = 0;
+      this.deadBoxCount = 0;
+    }
+  }
 }
+

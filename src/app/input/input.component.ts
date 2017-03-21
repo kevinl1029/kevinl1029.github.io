@@ -15,6 +15,11 @@ export class InputComponent implements OnInit {
     this.router.navigateByUrl('/boxselect');
   };
 
+  reset() {
+    if(confirm('Are you sure you want to reset?')) {
+      this.ccs.reset();
+    }
+  }
   onLog(value: string) {
     this.ccs.writeToLog(value);
   }

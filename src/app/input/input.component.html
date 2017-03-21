@@ -13,20 +13,6 @@
 					</label>
 				</div>
 			</div>
-						<!--#diluteRatio
-				value={{this.ccs.diluteRatio}}
-				(click)="onSend(diluteRatio.value,totalVolume.value)"
-				[routerLink]="['/boxselect']"
-			<div class="col-xs-12 form-group">
-					<label for="diluteInput">What is the dilution?</label>
-					<input type="text"
-					id="diluteInput"
-					required
-					class="form-control"
-					[ngModel]="this.ccs.diluteRatio"
-					name="diluteInput"
-					>
-			</div>-->
 			<div class="col-xs-12 form-group">
 					<label for="totalVolumeInput">What is the total volume?</label>
 					<input type="text"
@@ -38,10 +24,9 @@
 					<p> </p>
 			</div>
 		</div>
-			<!-- TODO: When button is clicked, check for form validation. Set up a guard? -->
 		<div class="row text-center">
-			<button type="submit" class="btn btn-success">Submit</button>
-			<!--<button type="button" class="btn btn-primary" [routerLink]="['/boxselect']">Proceed</button>-->
+			<button type="submit" class="btn btn-success" [disabled]="!f.valid">Submit</button>
+			<button type="button" class="btn btn-warning" (click)="reset()">Reset</button>
 		</div>
 	</form>
 </div>
