@@ -11,6 +11,7 @@ import { CellcountComponent } from './cellcount/cellcount.component';
 import { OutputComponent } from './output/output.component';
 import { CellcomputeService } from "app/cellcompute.service";
 import { routing } from "app/app.routing";
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { routing } from "app/app.routing";
     BoxSelectComponent,
     CellcountComponent,
     OutputComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,

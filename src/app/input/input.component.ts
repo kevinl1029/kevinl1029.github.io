@@ -1,5 +1,6 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { CellcomputeService } from '../cellcompute.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'la-input',
@@ -7,19 +8,11 @@ import { CellcomputeService } from '../cellcompute.service';
 })
 export class InputComponent implements OnInit {
 
-  diluteInput = '';
-  totalVolumeInput = '';
-
-  constructor(private ccs: CellcomputeService) {}
-
-  diluteRatioOptions = [
-    '1/2',
-    '1/4',
-    '1/8',
-    '1'];
+  constructor(private ccs: CellcomputeService, private router: Router) {}
 
   onSend(diluteInput: any, totalVolumeInput: any){
   	this.ccs.addData(diluteInput, totalVolumeInput);
+    this.router.navigateByUrl('/boxselect');
   };
 
   onLog(value: string) {

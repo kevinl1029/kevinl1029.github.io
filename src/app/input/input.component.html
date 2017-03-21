@@ -1,28 +1,47 @@
 <div class="container">
-<!--<form (ngSubmit)="onSubmit(f)" #f="ngForm">-->
-	<div>
-		<p> Did you dilute your cell counting volume? If so, by how much?<br></p>
-		<br>
-		<!--<div class="radio" *ngFor="let d of this.ccs.diluteRatioOptions">
-			<label>
-				<input type="radio"
-							#diluteRadio
-							[value]="d">
-				{{d}}
-			</label>
-		</div>-->
-		<div>
-			<label for="dilution">What is the dilution?</label>
-			<input type="text" #diluteRatio value={{this.ccs.diluteRatio}}>
-			<label for="totalvolume">What is the total volume?</label>
-			<input type="text" #totalVolume value={{this.ccs.totalVolume}}>
-			<p> </p>
+	<form (ngSubmit)="onSend(f.value.diluteInput,f.value.totalVolumeInput)" #f="ngForm">
+		<div class="row">
+			<div class="col-xs-12 form-group">
+				<p> Did you dilute your cell counting volume? If so, by how much?<br></p>
+				<div class="radio" *ngFor="let d of this.ccs.diluteRatioOptions">
+					<label>
+						<input type="radio"
+									[ngModel]="this.ccs.diluteRatio"
+									name="diluteInput"
+									[value]="d">
+						{{d}}
+					</label>
+				</div>
+			</div>
+						<!--#diluteRatio
+				value={{this.ccs.diluteRatio}}
+				(click)="onSend(diluteRatio.value,totalVolume.value)"
+				[routerLink]="['/boxselect']"
+			<div class="col-xs-12 form-group">
+					<label for="diluteInput">What is the dilution?</label>
+					<input type="text"
+					id="diluteInput"
+					required
+					class="form-control"
+					[ngModel]="this.ccs.diluteRatio"
+					name="diluteInput"
+					>
+			</div>-->
+			<div class="col-xs-12 form-group">
+					<label for="totalVolumeInput">What is the total volume?</label>
+					<input type="text"
+					id="totalVolumeInput"
+					required
+					class="form-control"
+					[ngModel]="this.ccs.totalVolume"
+					name="totalVolumeInput">
+					<p> </p>
+			</div>
 		</div>
-		<!-- TODO: When button is clicked, check for form validation. Set up a guard? -->
-		<div class="text-center">
-			<!--<button type="button" class="btn btn-primary" (click)="onLog(totalVolume.value)">Log</button>-->
-			<button type="button" class="btn btn-primary" [routerLink]="['/boxselect']" (click)="onSend(diluteRatio.value,totalVolume.value)">Proceed</button>
+			<!-- TODO: When button is clicked, check for form validation. Set up a guard? -->
+		<div class="row text-center">
+			<button type="submit" class="btn btn-success">Submit</button>
+			<!--<button type="button" class="btn btn-primary" [routerLink]="['/boxselect']">Proceed</button>-->
 		</div>
-	</div>
-<!--</form>-->
+	</form>
 </div>

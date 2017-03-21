@@ -10,7 +10,7 @@ export class CellcomputeService {
     '1/8',
     '1'];
 
-  diluteRatio: any = '';
+  diluteRatio: any = '1/4';
   totalVolume: number = null;
   liveCellCount: number []= [];
   deadCellCount: number []= [];
