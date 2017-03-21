@@ -80,6 +80,7 @@ export class CellcomputeService {
   reset() {
     this.diluteRatio = '1/4';
     this.totalVolume = null;
+    this.boxesRecorded = [];
     this.liveCellCount = [];
     this.deadCellCount = [];
     this.c10k = "Dilution Volume will show here";
