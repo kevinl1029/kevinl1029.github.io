@@ -1,40 +1,41 @@
 <div class="container">
+	<h4 class="text-center"> Select a box below to start counting </h4>
 	<div class="row">
-    <div class="col-xs-4 boxgrid" style="border-right-width:0px;border-bottom-width:0px" id="box1" (click)="boxSelect(1)" lAHighlight>
+    <div class="col-xs-4 boxgrid" style="border-right-width:0px;border-bottom-width:0px" (click)="boxSelect(1)" [ngClass]="{boxCounted: !this.ccs.boxCheck('1')}">
       <br><h1 id="centertext" style="vertical-align:middle"> 1 </h1>
     </div>
-    <div class="col-xs-4 boxgrid" style="border-bottom-width:0px" id="box2" (click)="boxSelect(2)" lAHighlight>
+    <div class="col-xs-4 boxgrid" style="border-bottom-width:0px" id="box2" (click)="boxSelect(2)" [ngClass]="{boxCounted: !this.ccs.boxCheck('2')}">
       <br><h1 id="centertext" style="vertical-align:middle"> 2 </h1>
     </div>
-    <div class="col-xs-4 boxgrid" style="border-bottom-width:0px;border-left-width:0px" id="box3" (click)="boxSelect(3)" lAHighlight>
+    <div class="col-xs-4 boxgrid" style="border-bottom-width:0px;border-left-width:0px" id="box3" (click)="boxSelect(3)" [ngClass]="{boxCounted: !this.ccs.boxCheck('3')}">
       <br><h1 id="centertext" style="vertical-align:middle"> 3 </h1>
     </div>
 	</div>
 	<div class="row">
-	  <div class="col-xs-4 boxgrid" style="border-right-width:0px" id="box4" (click)="boxSelect(4)" lAHighlight>
+	  <div class="col-xs-4 boxgrid" style="border-right-width:0px" id="box4" (click)="boxSelect(4)" [ngClass]="{boxCounted: !this.ccs.boxCheck('4')}">
 	    <br><h1 id="centertext" style="vertical-align:middle"> 4 </h1>
 	  </div>
-	  <div class="col-xs-4 boxgrid" id="box5" (click)="boxSelect(5)" lAHighlight>
+	  <div class="col-xs-4 boxgrid" id="box5" (click)="boxSelect(5)" [ngClass]="{boxCounted: !this.ccs.boxCheck('5')}">
 	    <br><h1 id="centertext" style="vertical-align:middle"> 5 </h1>
 	  </div>
-	  <div class="col-xs-4 boxgrid" style="border-left-width:0px" id="box6" (click)="boxSelect(6)" lAHighlight>
+	  <div class="col-xs-4 boxgrid" style="border-left-width:0px" id="box6" (click)="boxSelect(6)" [ngClass]="{boxCounted: !this.ccs.boxCheck('6')}">
     <br><h1 id="centertext" style="vertical-align:middle"> 6 </h1>
   	</div>
 	</div>
 	<div class="row">
-	  <div class="col-xs-4 boxgrid" style="border-top-width:0px; border-right-width:0px" id="box7" (click)="boxSelect(7)" lAHighlight>
+	  <div class="col-xs-4 boxgrid" style="border-top-width:0px; border-right-width:0px" id="box7" (click)="boxSelect(7)" [ngClass]="{boxCounted: !this.ccs.boxCheck('7')}">
 	    <br><h1 id="centertext" style="vertical-align:middle"> 7 </h1>
 	  </div>
-	  <div class="col-xs-4 boxgrid" style="border-top-width:0px" id="box8" (click)="boxSelect(8)" lAHighlight>
+	  <div class="col-xs-4 boxgrid" style="border-top-width:0px" id="box8" (click)="boxSelect(8)" [ngClass]="{boxCounted: !this.ccs.boxCheck('8')}">
 	    <br><h1 id="centertext" style="vertical-align:middle"> 8 </h1>
 	  </div>
-	  <div class="col-xs-4 boxgrid" style="border-top-width:0px;border-left-width:0px" id="box9" (click)="boxSelect(9)" lAHighlight>
+	  <div class="col-xs-4 boxgrid" style="border-top-width:0px;border-left-width:0px" id="box9" (click)="boxSelect(9)" [ngClass]="{boxCounted: !this.ccs.boxCheck('9')}">
 	    <br><h1 id="centertext" style="vertical-align:middle"> 9 </h1>
 	  </div>
 	</div>
 	<div class="text-center">
 	<br><br>
 		<button type="button" class="btn btn-success" [routerLink]="['/results']" (click)="calculateVols()" >Calculate Dilution Volumes</button>
-		<button type="submit" class="btn btn-primary" (click)="showVals()">Console values</button>
+		<!--<button type="submit" class="btn btn-primary" (click)="showVals()">Console values</button>-->
 	</div>
 </div>

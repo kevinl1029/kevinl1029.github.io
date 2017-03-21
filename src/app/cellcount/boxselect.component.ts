@@ -10,8 +10,7 @@ export class BoxSelectComponent implements OnInit {
 
   constructor(private ccs: CellcomputeService, private router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   calculateVols() {
     this.ccs.calculateVols();

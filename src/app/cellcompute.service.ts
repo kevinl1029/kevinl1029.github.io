@@ -35,6 +35,7 @@ export class CellcomputeService {
 
   boxCheck(id: string) {
     if(this.boxesRecorded.indexOf(id) > -1) {
+      // console.log('Method ran');
       return false;
     }
     return true;

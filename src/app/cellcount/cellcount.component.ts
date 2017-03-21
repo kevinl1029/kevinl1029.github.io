@@ -32,10 +32,16 @@ export class CellcountComponent implements OnInit {
   }
 
   addToCellArrays() {
-    this.ccs.writeToLog(this.liveBoxCount+" " + this.deadBoxCount);
+    if (this.liveBoxCount + this.deadBoxCount == 0) {
+      if(!confirm('Are you sure you want to submit 0 Live Cells and 0 Dead Cells?')) {
+        return;
+      }
+    }
+    // this.ccs.writeToLog(this.liveBoxCount+" " + this.deadBoxCount);
     this.ccs.cellArraySubmit(this.liveBoxCount, this.deadBoxCount, this.id);
     this.liveBoxCount = 0;
     this.deadBoxCount = 0;
+    this.router.navigateByUrl('/boxselect');
   }
 
   back() {
